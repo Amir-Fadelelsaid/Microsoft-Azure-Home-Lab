@@ -1,117 +1,73 @@
-🏴‍☠️ Azure-Defense-Lab
+# Azure-Defense-Lab
 
-📌 Project Overview
+## 📌 Project Overview
+Azure-Defense-Lab is a **cybersecurity home lab** designed to simulate real-world **SOC (Security Operations Center) analyst** tasks. It leverages **Azure, Windows, Microsoft Sentinel, and Log Analytics Workspace** to detect and respond to live attacks, providing hands-on experience in threat monitoring and incident response.
 
-Azure-Defense-Lab is a cybersecurity home lab designed to simulate real-world SOC (Security Operations Center) analyst tasks. It leverages Azure, Windows, Microsoft Sentinel, and Log Analytics Workspace to detect and respond to live attacks, providing hands-on experience in threat monitoring and incident response.
+## 🛠 Tools & Technologies Used
+- **Azure Virtual Machines** – Cloud-based honeypot for monitoring attacks
+- **Microsoft Sentinel** – Cloud-native SIEM for security event management
+- **Log Analytics Workspace** – Centralized log repository for event analysis
+- **Windows Event Logs** – Log collection for security monitoring
+- **PowerShell** – Agent installation and configuration
 
-🛠 Tools & Technologies Used
+## 🚀 Features
+- Deploys a **Windows virtual machine** in Azure as a honeypot
+- Configures **Microsoft Sentinel** to collect and analyze logs
+- Simulates **real-world attacks** by exposing the VM to the internet
+- Extracts **geolocation data** to map attackers in real time
+- Responds to threats **just like a SOC analyst**
 
-Azure Virtual Machines – Cloud-based honeypot for monitoring attacks
+## 🏗️ Setup Instructions
 
-Microsoft Sentinel – Cloud-native SIEM for security event management
+### **1️⃣ Deploy Windows Virtual Machine in Azure**
+1. Create an **[Azure Free Account](https://azure.microsoft.com/en-us/free/)**.
+2. Launch a **Windows Virtual Machine** using a free-tier eligible size.
+3. Configure **Remote Desktop Protocol (RDP)** for access.
+4. Set up **Network Security Group (NSG)** to allow all inbound traffic.
+5. Disable **Windows Firewall** inside the VM.
 
-Log Analytics Workspace – Centralized log repository for event analysis
+### **2️⃣ Configure Log Analytics Workspace**
+1. Create a **Log Analytics Workspace** in the same Resource Group.
+2. Connect the **Virtual Machine** to **Log Analytics**.
+3. Install the **Azure Monitoring Agent** on the VM to forward logs.
 
-Windows Event Logs – Log collection for security monitoring
+### **3️⃣ Set Up Microsoft Sentinel**
+1. Activate **Microsoft Sentinel** and connect it to Log Analytics Workspace.
+2. Install **Windows Security Event Connector** to collect logs.
+3. Enable **Security Event Collection** for ingestion.
 
-PowerShell – Agent installation and configuration
+### **4️⃣ Simulate Malware Attacks**
+1. Leave the VM exposed to the public internet.
+2. Attackers will attempt **brute-force logins** within minutes.
+3. View **failed login attempts** in Event Viewer inside the VM.
+4. Use **Sentinel Queries (KQL)** to analyze attack patterns.
 
-🚀 Features
+### **5️⃣ Enrich Logs with Geolocation Data**
+1. Upload an **IP Geolocation Database** to Sentinel as a **Watchlist**.
+2. Match attacker IP addresses to **cities and countries**.
+3. Use **KQL queries** to extract attacker locations.
 
-Deploys a Windows virtual machine in Azure as a honeypot
+### **6️⃣ Create an Attack Map in Sentinel**
+1. Open **Sentinel Workbooks** and create a new dashboard.
+2. Import a **KQL Query** to visualize attack sources on a world map.
+3. Track live attack data and adjust map settings as needed.
 
-Configures Microsoft Sentinel to collect and analyze logs
+## 📊 Use Cases & Learning Outcomes
+✅ Understand **SIEM architecture** and log ingestion  
+✅ Gain hands-on experience in **threat intelligence & analysis**  
+✅ Learn **KQL querying** for attack investigations  
+✅ Build an **interactive attack map** in Microsoft Sentinel  
+✅ Practice **SOC analyst workflows** with **real attack data**
 
-Simulates real-world attacks by exposing the VM to the internet
+## 🔮 Future Enhancements
+- 🛠 **Automate deployment** using Terraform & Azure Bicep
+- 🔍 **Expand to Linux/macOS agents** for broader coverage
+- 📈 **Enhance detection rules** for advanced threat analysis
+- 🔒 **Integrate with Splunk & other SIEM tools** for cross-platform monitoring
 
-Extracts geolocation data to map attackers in real time
+## 🏆 Acknowledgments
+Built as a hands-on cybersecurity project to simulate **real-world SOC workflows** and gain **practical experience** in threat detection & incident response. Inspired by **Microsoft Sentinel Labs** and best practices in cloud security.
 
-Responds to threats just like a SOC analyst
-
-🏗️ Setup Instructions
-
-1️⃣ Create an Azure Subscription
-
-Sign up for an Azure Free Account.
-
-Provide a credit card for verification (no charges during the trial).
-
-Log in to portal.azure.com.
-
-2️⃣ Deploy Windows Virtual Machine
-
-Create a Resource Group (e.g., RG-SOC-Lab).
-
-Create a Virtual Network and Subnet inside the Resource Group.
-
-Deploy a Windows 10 Virtual Machine:
-
-Use a free-tier eligible VM size.
-
-Set up Remote Desktop Protocol (RDP) access.
-
-Configure a Network Security Group (NSG):
-
-Open all inbound traffic to attract attackers.
-
-Disable Windows Firewall to allow unrestricted access.
-
-3️⃣ Configure Log Analytics Workspace
-
-Create a Log Analytics Workspace in the same Resource Group.
-
-Connect the Virtual Machine to Log Analytics.
-
-Install the Azure Monitoring Agent on the VM to forward logs.
-
-4️⃣ Set Up Microsoft Sentinel
-
-Activate Microsoft Sentinel and connect it to Log Analytics Workspace.
-
-Install Windows Security Event Connector to collect VM logs.
-
-Enable Security Event Collection for log ingestion.
-
-5️⃣ Simulate Live Attacks
-
-Leave the VM exposed to the public internet.
-
-Attackers will attempt to brute-force logins within minutes to hours.
-
-Log into the VM and view failed login attempts using Event Viewer.
-
-Configure Sentinel Queries (KQL) to analyze failed login patterns.
-
-6️⃣ Enrich Logs with Geolocation Data
-
-Upload an IP Geolocation Database to Sentinel as a Watchlist.
-
-Match attacker IP addresses to cities and countries.
-
-Use KQL queries to extract attacker locations.
-
-7️⃣ Create an Attack Map
-
-Open Sentinel Workbooks and create a new dashboard.
-
-Import a preconfigured KQL Query to visualize attacks on a world map.
-
-Track live attack data and adjust map settings for better insights.
-
-📊 Use Cases & Learning Outcomes
-
-✅ Understand SIEM architecture and log ingestion✅ Gain hands-on experience in threat intelligence & analysis✅ Learn KQL querying for attack investigations✅ Build an interactive attack map in Microsoft Sentinel✅ Practice SOC analyst workflows with real attack data
-
-🔮 Future Enhancements
-
-🛠 Automate deployment using Terraform & Azure Bicep
-
-🔍 Expand to Linux/macOS agents for broader coverage
-
-📈 Enhance detection rules for advanced threat analysis
-
-🔒 Integrate with Splunk & other SIEM tools for cross-platform monitoring
-
-🏆 Acknowledgments
-
-Built as a hands-on cybersecurity project to simulate real-world SOC workflows and gain practical experience in threat detection & incident response. Inspired by Microsoft Sentinel Labs and best practices in cloud security.
+---
+### **📢 Contributions & Feedback**
+If you have suggestions or improvements, feel free to **open an issue** or **submit a pull request**. Happy hacking! 🚀
