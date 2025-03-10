@@ -1,10 +1,10 @@
-Azure-Defense-Lab
+🏴‍☠️ Azure-Defense-Lab
 
 📌 Project Overview
 
 Azure-Defense-Lab is a cybersecurity home lab designed to simulate real-world SOC (Security Operations Center) analyst tasks. It leverages Azure, Windows, Microsoft Sentinel, and Log Analytics Workspace to detect and respond to live attacks, providing hands-on experience in threat monitoring and incident response.
 
-🧰 Tools & Technologies Used
+🛠 Tools & Technologies Used
 
 Azure Virtual Machines – Cloud-based honeypot for monitoring attacks
 
@@ -28,7 +28,7 @@ Extracts geolocation data to map attackers in real time
 
 Responds to threats just like a SOC analyst
 
-🏰 Setup Instructions
+🏗️ Setup Instructions
 
 1️⃣ Create an Azure Subscription
 
@@ -102,17 +102,16 @@ Track live attack data and adjust map settings for better insights.
 
 ✅ Understand SIEM architecture and log ingestion✅ Gain hands-on experience in threat intelligence & analysis✅ Learn KQL querying for attack investigations✅ Build an interactive attack map in Microsoft Sentinel✅ Practice SOC analyst workflows with real attack data
 
-🌟 Future Enhancements
+🔮 Future Enhancements
 
 🛠 Automate deployment using Terraform & Azure Bicep
 
-🔎 Expand to Linux/macOS agents for broader coverage
+🔍 Expand to Linux/macOS agents for broader coverage
 
-📊 Enhance detection rules for advanced threat analysis
+📈 Enhance detection rules for advanced threat analysis
 
 🔒 Integrate with Splunk & other SIEM tools for cross-platform monitoring
 
 🏆 Acknowledgments
 
 Built as a hands-on cybersecurity project to simulate real-world SOC workflows and gain practical experience in threat detection & incident response. Inspired by Microsoft Sentinel Labs and best practices in cloud security.
-
