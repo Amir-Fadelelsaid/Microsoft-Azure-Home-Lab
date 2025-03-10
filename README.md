@@ -2,88 +2,117 @@ Azure-Defense-Lab
 
 📌 Project Overview
 
-Azure-Defense-Lab is a cybersecurity home lab designed to simulate real-world SOC (Security Operations Center) analyst tasks. It leverages Azure, Windows, Microsoft Sentinel, and Defender for Endpoint to detect and respond to malware, providing hands-on experience in threat monitoring and incident response.
+Azure-Defense-Lab is a cybersecurity home lab designed to simulate real-world SOC (Security Operations Center) analyst tasks. It leverages Azure, Windows, Microsoft Sentinel, and Log Analytics Workspace to detect and respond to live attacks, providing hands-on experience in threat monitoring and incident response.
 
-🫠 Tools & Technologies Used
+🧰 Tools & Technologies Used
 
-Azure Virtual Machines – Windows instance for endpoint monitoring
+Azure Virtual Machines – Cloud-based honeypot for monitoring attacks
 
-Microsoft Sentinel – Cloud-native SIEM and SOAR solution
+Microsoft Sentinel – Cloud-native SIEM for security event management
 
-Microsoft Defender for Endpoint – Endpoint Detection & Response (EDR) solution
+Log Analytics Workspace – Centralized log repository for event analysis
 
-Windows Event Logs – Log collection for security analysis
+Windows Event Logs – Log collection for security monitoring
 
 PowerShell – Agent installation and configuration
 
 🚀 Features
 
-Deploys a Windows virtual machine in Azure
-
-Installs Microsoft Defender for Endpoint for endpoint monitoring
+Deploys a Windows virtual machine in Azure as a honeypot
 
 Configures Microsoft Sentinel to collect and analyze logs
 
-Simulates malware detection using the EICAR test file
+Simulates real-world attacks by exposing the VM to the internet
+
+Extracts geolocation data to map attackers in real time
 
 Responds to threats just like a SOC analyst
 
 🏰 Setup Instructions
 
-1️⃣ Deploy Windows Instance in Azure
+1️⃣ Create an Azure Subscription
 
-Create an Azure account (Azure Free Tier).
+Sign up for an Azure Free Account.
 
-Navigate to the Azure Portal and create a Windows Virtual Machine.
+Provide a credit card for verification (no charges during the trial).
 
-Configure networking to allow RDP access (port 3389).
+Log in to portal.azure.com.
 
-Create and download an RDP key pair to access your instance.
+2️⃣ Deploy Windows Virtual Machine
 
-Connect to the instance using Remote Desktop Protocol (RDP).
+Create a Resource Group (e.g., RG-SOC-Lab).
 
-2️⃣ Set Up Microsoft Sentinel
+Create a Virtual Network and Subnet inside the Resource Group.
 
-Navigate to the Azure Portal and search for Microsoft Sentinel.
+Deploy a Windows 10 Virtual Machine:
 
-Deploy a Log Analytics Workspace and onboard it to Sentinel.
+Use a free-tier eligible VM size.
 
-Enable security analytics and configure log ingestion.
+Set up Remote Desktop Protocol (RDP) access.
 
-3️⃣ Install & Configure Defender for Endpoint Agent
+Configure a Network Security Group (NSG):
 
-In Microsoft Defender Security Center, navigate to "Onboarding".
+Open all inbound traffic to attract attackers.
 
-Generate an installation script for Windows.
+Disable Windows Firewall to allow unrestricted access.
 
-Run the script in PowerShell on the Azure VM.
+3️⃣ Configure Log Analytics Workspace
 
-Verify that logs are being ingested in Microsoft Sentinel.
+Create a Log Analytics Workspace in the same Resource Group.
 
-4️⃣ Simulate Malware Detection
+Connect the Virtual Machine to Log Analytics.
 
-Download the EICAR test file.
+Install the Azure Monitoring Agent on the VM to forward logs.
 
-Attempt to execute it on the Windows VM.
+4️⃣ Set Up Microsoft Sentinel
 
-Microsoft Defender for Endpoint should detect and quarantine the file.
+Activate Microsoft Sentinel and connect it to Log Analytics Workspace.
 
-Review the alert in Microsoft Sentinel under the Incidents tab.
+Install Windows Security Event Connector to collect VM logs.
+
+Enable Security Event Collection for log ingestion.
+
+5️⃣ Simulate Live Attacks
+
+Leave the VM exposed to the public internet.
+
+Attackers will attempt to brute-force logins within minutes to hours.
+
+Log into the VM and view failed login attempts using Event Viewer.
+
+Configure Sentinel Queries (KQL) to analyze failed login patterns.
+
+6️⃣ Enrich Logs with Geolocation Data
+
+Upload an IP Geolocation Database to Sentinel as a Watchlist.
+
+Match attacker IP addresses to cities and countries.
+
+Use KQL queries to extract attacker locations.
+
+7️⃣ Create an Attack Map
+
+Open Sentinel Workbooks and create a new dashboard.
+
+Import a preconfigured KQL Query to visualize attacks on a world map.
+
+Track live attack data and adjust map settings for better insights.
 
 📊 Use Cases & Learning Outcomes
 
-✅ Understand SIEM architecture and log ingestion✅ Gain hands-on experience in malware detection & response✅ Learn to configure endpoint security agents✅ Practice SOC analyst workflows with alert analysis & triage
+✅ Understand SIEM architecture and log ingestion✅ Gain hands-on experience in threat intelligence & analysis✅ Learn KQL querying for attack investigations✅ Build an interactive attack map in Microsoft Sentinel✅ Practice SOC analyst workflows with real attack data
 
-🎯 Future Enhancements
+🌟 Future Enhancements
 
-🫠 Automate deployment using Terraform
+🛠 Automate deployment using Terraform & Azure Bicep
 
-🔍 Expand to Linux/macOS agents for cross-platform monitoring
+🔎 Expand to Linux/macOS agents for broader coverage
 
-📊 Create custom detection rules in Microsoft Sentinel
+📊 Enhance detection rules for advanced threat analysis
 
-🔒 Integrate Splunk or other SIEM tools for comparative analysis
+🔒 Integrate with Splunk & other SIEM tools for cross-platform monitoring
 
 🏆 Acknowledgments
 
-Built as a hands-on cybersecurity project to simulate real-world SOC workflows and gain practical experience in threat detection & incident response. Inspired by Microsoft Security Best Practices and Azure security principles.
+Built as a hands-on cybersecurity project to simulate real-world SOC workflows and gain practical experience in threat detection & incident response. Inspired by Microsoft Sentinel Labs and best practices in cloud security.
+
